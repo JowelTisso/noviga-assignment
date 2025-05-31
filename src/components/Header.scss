@@ -1,0 +1,28 @@
+@import "../styles/variables";
+@import "../styles//utils";
+
+.header{
+    @include verticalCenter();
+    height: 45px;
+    background-color: $primary-color;
+    color: $text-secondary-color;
+    gap: 20px;
+    padding: 5px 10px;
+
+    .title{
+        @include verticalCenter();
+        font-size: 1.5rem;
+        padding-bottom: 2px;
+    }
+    
+    .btn-sidenav{
+        cursor: pointer;
+        height: 100%;
+        width: 40px;
+        @include flexCenter();
+
+        &:active{
+            background-color: $click-effect-color;
+        }
+    }
+}

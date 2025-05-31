@@ -1,0 +1,11 @@
+@import '../styles/variables';
+@import "../styles//utils";
+
+.nav-title{
+    @include verticalCenter();
+    padding-left: 20px;
+    font-size: 1.2rem;
+    background-color: $primary-color;
+    color: $text-secondary-color;
+    height: 45px;
+}
