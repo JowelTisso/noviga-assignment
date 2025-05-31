@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Drawer from "@mui/material/Drawer";
 import {
   Box,
@@ -10,32 +9,44 @@ import {
 } from "@mui/material";
 import { TimelineOutlined, AreaChartOutlined } from "@mui/icons-material";
 import "./Drawer.scss";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../store/store";
+import { toggleDrawer } from "../reducers/mainSlice";
+import { useNavigate } from "react-router-dom";
 
 const menuList = [
   {
     id: 1,
     title: "Scatter Data",
     icon: TimelineOutlined,
+    path: "/",
   },
   {
     id: 2,
     title: "Tree Visualization",
     icon: AreaChartOutlined,
+    path: "/tree",
   },
 ];
 
-const SideNav = () => {
-  const [openDrawer, setOpenDrawer] = useState(true);
+const SideNav: React.FC = () => {
+  const { openDrawer } = useSelector((state: RootState) => state.main);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const toggleDrawer = (action: boolean) => setOpenDrawer(action);
+  const clickHandler = (path: string) => {
+    navigate(path);
+    dispatch(toggleDrawer(false));
+  };
+
   return (
-    <Drawer open={openDrawer} onClose={() => toggleDrawer(false)}>
+    <Drawer open={openDrawer} onClose={() => dispatch(toggleDrawer(false))}>
       <Box sx={{ width: 250 }} role="drawer">
         <p className="nav-title">Noviga Automation</p>
         <List>
           {menuList.map((menu) => (
             <ListItem key={menu.id} disablePadding>
-              <ListItemButton>
+              <ListItemButton onClick={() => clickHandler(menu.path)}>
                 <ListItemIcon>
                   <menu.icon />
                 </ListItemIcon>
