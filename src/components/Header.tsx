@@ -1,8 +1,8 @@
 import { useDispatch } from "react-redux";
 import "./Header.scss";
-import MenuIcon from "@mui/icons-material/Menu";
 import { toggleDrawer } from "../reducers/mainSlice";
 import { useLocation } from "react-router-dom";
+import { Menu } from "lucide-react";
 
 const headerTitle: { [id: string]: string } = {
   "/": "Scatter Data",
@@ -20,7 +20,7 @@ const Header: React.FC = () => {
         className="btn-sidenav"
         onClick={() => dispatch(toggleDrawer(true))}
       >
-        <MenuIcon />
+        <Menu />
       </span>
       <p className="title">{headerTitle[pathname]}</p>
     </header>

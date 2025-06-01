@@ -7,24 +7,24 @@ import {
   ListItemIcon,
   ListItemText,
 } from "@mui/material";
-import { TimelineOutlined, AreaChartOutlined } from "@mui/icons-material";
 import "./Drawer.scss";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../store/store";
 import { toggleDrawer } from "../reducers/mainSlice";
 import { useNavigate } from "react-router-dom";
+import { ChartArea, ChartSpline } from "lucide-react";
 
 const menuList = [
   {
     id: 1,
     title: "Scatter Data",
-    icon: TimelineOutlined,
+    icon: ChartArea,
     path: "/",
   },
   {
     id: 2,
     title: "Tree Visualization",
-    icon: AreaChartOutlined,
+    icon: ChartSpline,
     path: "/tree",
   },
 ];
