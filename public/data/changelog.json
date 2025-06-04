@@ -5,6 +5,7 @@
       "id": "e0681655b73741edb59a01ba96454200",
       "model_type": "spindle_load",
       "start_time": "2025-03-18T18:32:04",
+      "end_time": "2025-03-29T11:37:09",
       "customer_id": "48160dddd6e14cf1bca0a5c19aba5013",
       "machine_id": "1e776bfb2d2947648a8c01d60670af94",
       "learned_time": "2025-03-26T11:37:09",
@@ -198,7 +199,8 @@
     {
       "id": "59ec8bc9c1554280b653bbfe509e16aa",
       "model_type": "spindle_load",
-      "start_time": "2025-04-04T09:29:25",
+      "start_time": "2025-03-01T11:29:25",
+      "end_time": "2025-03-18T11:37:09",
       "customer_id": "48160dddd6e14cf1bca0a5c19aba5013",
       "machine_id": "1e776bfb2d2947648a8c01d60670af94",
       "learned_time": "2025-01-27T11:17:54",
