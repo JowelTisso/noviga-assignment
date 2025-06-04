@@ -1,7 +1,7 @@
 import { createServer } from "miragejs";
 import {
   getChangeLogs,
-  getCycleData,
+  getTimeseriesData,
   getPredictionData,
 } from "./controllers/ScatterData";
 
@@ -13,7 +13,7 @@ export function makeServer({ environment = "development" } = {}) {
       this.namespace = "";
       this.get("/changelogs", getChangeLogs);
       this.get("/predictions", getPredictionData);
-      this.get("/cycles", getCycleData);
+      this.get("/timeseries", getTimeseriesData);
       this.passthrough("/data/**");
     },
   });

@@ -14,17 +14,21 @@ import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 
 import { combineDateAndTimeToISO } from "../utils/helper";
-import type {
-  AxisValueType,
-  ChangeLogEntry,
-  PredictionData,
-  ScatterPlotDataType,
-  ThresholdDataType,
+import {
+  Anomaly,
+  type AxisValueType,
+  type ChangeLogEntry,
+  type PredictionData,
+  type ScatterPlotDataType,
+  type ThresholdDataType,
 } from "../types/ScatterData";
 import { getChangeLogData, getPredictionData } from "../services/scatterData";
 import { addDays } from "date-fns";
 import CircularProgress from "@mui/material/CircularProgress";
 import ScatterPlotGraph from "../components/ScatterPlotGraph";
+import TimeseriesGraph from "../components/TimeseriesGraph";
+import { useSelector } from "react-redux";
+import type { RootState } from "../store/store";
 
 const machines = [
   {
@@ -55,12 +59,15 @@ const ScatterData = () => {
   );
   const [toolSequence, setToolSequence] = useState("");
   const [changeLogs, setChangeLogs] = useState<ChangeLogEntry[]>([]);
-
   const [xTicks, setXTicks] = useState([]);
   const [scatterPlotData, setScatterPlotData] = useState<ScatterPlotDataType>();
   const [thresholds, setThresholds] = useState<ThresholdDataType[]>([]);
+  const [signal, setSignal] = useState("");
 
   const [pending, startTransition] = useTransition();
+  const { timeSeriesData, loading } = useSelector(
+    (state: RootState) => state.main
+  );
 
   const onMachineChange = (event: SelectChangeEvent) => {
     setMachineId(event.target.value);
@@ -134,7 +141,6 @@ const ScatterData = () => {
       setXTicks(xTicks);
 
       // Hardcoding first signal from signals array as there is no mentioned option to select signal
-      const signal = changeLogs[0].config_parameters.signals[0];
       const formattedPredictionData = formatPredictionData(predictions, signal);
       setScatterPlotData(formattedPredictionData);
     });
@@ -156,6 +162,9 @@ const ScatterData = () => {
               x: parseInt(xValue) * 1000,
               y: cycleData.data[signal].distance,
               id: cycleData.id,
+              cycle_log_id: cycleData.cycle_log_id,
+              anomaly: Anomaly.Red,
+              start_time: cycleData.start_time,
             });
             break;
           case false:
@@ -163,6 +172,9 @@ const ScatterData = () => {
               x: parseInt(xValue) * 1000,
               y: cycleData.data[signal].distance,
               id: cycleData.id,
+              cycle_log_id: cycleData.cycle_log_id,
+              anomaly: Anomaly.Green,
+              start_time: cycleData.start_time,
             });
             break;
           case null:
@@ -170,6 +182,9 @@ const ScatterData = () => {
               x: parseInt(xValue) * 1000,
               y: cycleData.data[signal].distance,
               id: cycleData.id,
+              cycle_log_id: cycleData.cycle_log_id,
+              anomaly: Anomaly.Black,
+              start_time: cycleData.start_time,
             });
             break;
           default:
@@ -209,7 +224,11 @@ const ScatterData = () => {
             from_time,
             to_time
           );
-          setChangeLogs(changeLogResponse);
+          if (changeLogResponse && changeLogResponse.length) {
+            const signal = changeLogResponse[0].config_parameters.signals[0];
+            setSignal(signal);
+            setChangeLogs(changeLogResponse);
+          }
         })();
       }
     });
@@ -217,7 +236,7 @@ const ScatterData = () => {
 
   return (
     <div className="wrapper">
-      {pending && (
+      {(pending || loading) && (
         <Box className="loader">
           <CircularProgress />
         </Box>
@@ -355,7 +374,13 @@ const ScatterData = () => {
         xTicks={xTicks}
         scatterPlotData={scatterPlotData}
         thresholds={thresholds}
+        machineId={machineId}
+        signal={signal}
+        changeLogs={changeLogs}
+        sequence={toolSequence}
       />
+
+      {timeSeriesData && <TimeseriesGraph signal={signal} />}
     </div>
   );
 };

@@ -12,9 +12,11 @@ import {
 } from "recharts";
 import { COLORS } from "../utils/Colors";
 import { format } from "date-fns";
-import type {
-  ScatterPlotDataType,
-  ThresholdDataType,
+import {
+  Anomaly,
+  type ChangeLogEntry,
+  type ScatterPlotType,
+  type TimeSeriesDataType,
 } from "../types/ScatterData";
 import {
   Circle,
@@ -24,6 +26,10 @@ import {
   ChartNoAxesCombined,
 } from "lucide-react";
 import Box from "@mui/material/Box";
+import CustomTooltip from "./CustomTooltip";
+import { getTimeseriesData } from "../services/scatterData";
+import { useDispatch } from "react-redux";
+import { setLoading, setTimeSeriesData } from "../reducers/mainSlice";
 
 const legends = [
   {
@@ -53,14 +59,117 @@ const legends = [
   },
 ];
 
-export type ScatterPlotType = {
-  xTicks: number[];
-  scatterPlotData: ScatterPlotDataType;
-  thresholds: ThresholdDataType[];
+const tempCycleLogId = {
+  red: 89280,
+  green: 88362,
+  black: 89152,
 };
 
 const ScatterPlotGraph = memo(
-  ({ xTicks, scatterPlotData, thresholds }: ScatterPlotType) => {
+  ({
+    xTicks,
+    scatterPlotData,
+    thresholds,
+    machineId,
+    signal,
+    changeLogs,
+    sequence,
+  }: ScatterPlotType) => {
+    const dispatch = useDispatch();
+
+    const dataClickHandler = async (cycleData: {
+      cycle_log_id: string;
+      anomaly: Anomaly;
+      start_time: Date;
+    }) => {
+      dispatch(setLoading(true));
+      const { cycle_log_id, anomaly, start_time } = cycleData;
+
+      const idealSignals = fetchIdealSignals(changeLogs, start_time, sequence);
+
+      const timeseriesResponse = await getTimeseriesData(
+        machineId,
+        cycle_log_id,
+        signal,
+        anomaly
+      );
+
+      const { timeRange, actualSignals } = formatTimeSeriesData(
+        timeseriesResponse,
+        anomaly,
+        signal
+      );
+
+      dispatch(
+        setTimeSeriesData({
+          time: timeRange,
+          actual: actualSignals,
+          ideal: idealSignals,
+        })
+      );
+      dispatch(setLoading(false));
+    };
+
+    const fetchIdealSignals = (
+      changeLogs: ChangeLogEntry[],
+      start_time: Date,
+      sequence: string
+    ) => {
+      const logWithIdealSignal = changeLogs.find(
+        (log) =>
+          new Date(log.start_time) <= new Date(start_time) &&
+          new Date(start_time) <= new Date(log.end_time)
+      );
+
+      const idealSignals = logWithIdealSignal
+        ? logWithIdealSignal.learned_parameters[sequence]?.average_list
+        : [];
+      return idealSignals;
+    };
+
+    const formatTimeSeriesData = (
+      timeseriesResponse: TimeSeriesDataType,
+      anomaly: Anomaly,
+      signal: string
+    ) => {
+      try {
+        const timeRange: number[] = [];
+        const actualSignals: number[] = [];
+
+        // Here I am simulating timeseries graph for all data points as given timeseries json has only one cycle_log data for each anomaly
+        // cycle_log_id should be dynamic and should come from cycleData.
+        let cycle_log_id = 0;
+
+        switch (anomaly) {
+          case Anomaly.Green:
+            cycle_log_id = tempCycleLogId.green;
+            break;
+          case Anomaly.Red:
+            cycle_log_id = tempCycleLogId.red;
+            break;
+          case Anomaly.Black:
+            cycle_log_id = tempCycleLogId.black;
+            break;
+          default:
+            cycle_log_id = tempCycleLogId.green;
+            break;
+        }
+
+        if (timeseriesResponse) {
+          Object.entries(
+            timeseriesResponse.data[cycle_log_id]?.cycle_data[signal]
+          ).forEach(([time, value]) => {
+            timeRange.push(parseInt(time));
+            actualSignals.push(value);
+          });
+        }
+
+        return { timeRange, actualSignals };
+      } catch (err) {
+        console.error(err);
+      }
+    };
+
     return (
       <Box className="box scatter-graph" sx={{ mt: 1 }}>
         <Box className="scatter-graph-header">
@@ -75,15 +184,13 @@ const ScatterPlotGraph = memo(
             ))}
           </div>
         </Box>
-        <ResponsiveContainer width="100%" height={300}>
+        <ResponsiveContainer width="100%" height={200}>
           <ScatterChart
-            width={730}
-            height={250}
             margin={{
               top: 20,
               right: 20,
               bottom: 20,
-              left: 50,
+              left: 20,
             }}
           >
             <CartesianGrid vertical={false} />
@@ -93,7 +200,7 @@ const ScatterPlotGraph = memo(
               name="Time"
               scale="time"
               ticks={xTicks}
-              tick={{ fontSize: 12 }}
+              fontSize={12}
               domain={["dataMin", "dataMax"]}
               label={{ value: "Time", position: "bottom" }}
               tickFormatter={(tick) => format(new Date(tick), "d MMM")}
@@ -102,40 +209,22 @@ const ScatterPlotGraph = memo(
               dataKey="y"
               type="number"
               name="Values"
-              tick={{ fontSize: 12 }}
+              fontSize={12}
               tickFormatter={(tick) => tick.toFixed(0)}
               label={{ value: "Values", position: "left", angle: -90 }}
             />
             <Tooltip
               cursor={{ strokeDasharray: "3 3" }}
-              content={({ active, payload }) => {
-                if (active && payload && payload.length) {
-                  const time = payload[0];
-                  const value = payload[1];
-                  const id = time.payload.id;
-
-                  const formattedDate = new Date(
-                    time.value as number
-                  ).toDateString();
-
-                  const formattedValue = Number(value.value).toFixed(0);
-
-                  return (
-                    <div className="tooltip-wrapper">
-                      <p className="tooltip-txt">ID : {id} </p>
-                      <p className="tooltip-txt">Time : {formattedDate} </p>
-                      <p className="tooltip-txt">Value : {formattedValue} </p>
-                    </div>
-                  );
-                }
-                return null;
-              }}
+              content={({ active, payload }) => (
+                <CustomTooltip active={active} payload={payload} />
+              )}
             />
             <Scatter
               name="Anomaly false"
               data={scatterPlotData?.anomalyFalseData}
               fill={COLORS.anomaly_false}
               isAnimationActive={false}
+              onClick={dataClickHandler}
             />
             <Scatter
               name="Anomaly true"
@@ -143,6 +232,7 @@ const ScatterPlotGraph = memo(
               fill={COLORS.anomaly_true}
               isAnimationActive={false}
               shape="diamond"
+              onClick={dataClickHandler}
             />
             <Scatter
               name="Sequence null"
@@ -150,6 +240,7 @@ const ScatterPlotGraph = memo(
               fill={COLORS.sequence_null}
               isAnimationActive={false}
               shape="triangle"
+              onClick={dataClickHandler}
             />
             {thresholds?.map(({ x1, x2, y }) => (
               <ReferenceLine

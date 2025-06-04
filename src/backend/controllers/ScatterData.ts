@@ -4,12 +4,6 @@ import type {
   PredictionDataResponse,
 } from "../../types/ScatterData";
 
-const AnomalyType = {
-  true: "red",
-  false: "green",
-  null: "black",
-};
-
 export const getChangeLogs = async (_, request: Request) => {
   const machine_id = request.queryParams.machine_id;
   const limit = Number(request.queryParams.limit) || 10;
@@ -88,7 +82,7 @@ export const getPredictionData = async (_, request: Request) => {
   };
 };
 
-export const getCycleData = async (_, request: Request) => {
+export const getTimeseriesData = async (_, request: Request) => {
   const { machine_id, cycle_log_id, signal, anomaly } = request.queryParams;
 
   if (!machine_id || !cycle_log_id || !signal) {
@@ -102,32 +96,13 @@ export const getCycleData = async (_, request: Request) => {
     );
   }
 
-  const anomalyType =
-    AnomalyType[anomaly as keyof typeof AnomalyType] || "green";
+  const response = await fetch("/data/timeseries.json");
+  const timeseriesJson = await response.json();
 
-  try {
-    const response = await fetch("/data/cycleData.json");
-    const json = await response.json();
-
-    const result = {
-      Status: true,
-      Result: {
-        data: {
-          [cycle_log_id as string]:
-            json.machines[machine_id as string][anomalyType as string] || {},
-        },
-      },
-    };
-
-    return result;
-  } catch (err) {
-    return new Response(
-      500,
-      {},
-      {
-        Status: false,
-        Error: "Failed to load timeseries data",
-      }
-    );
-  }
+  return {
+    Status: true,
+    Result: {
+      ...timeseriesJson.machines[machine_id as string][anomaly as string],
+    },
+  };
 };

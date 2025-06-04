@@ -1,4 +1,9 @@
-import type { ChangeLogResponse, PredictionData } from "../types/ScatterData";
+import type {
+  Anomaly,
+  ChangeLogResponse,
+  PredictionData,
+  TimeseriesResponse,
+} from "../types/ScatterData";
 import { axiosInstance } from "../utils/helper";
 
 export const getChangeLogData = async (
@@ -14,7 +19,7 @@ export const getChangeLogData = async (
 
     return res.data.Result;
   } catch (err) {
-    console.log(err);
+    console.error(err);
   }
 };
 
@@ -32,6 +37,23 @@ export const getPredictionData = async (
     );
     return res.data.Result;
   } catch (err) {
-    console.log(err);
+    console.error(err);
+  }
+};
+
+export const getTimeseriesData = async (
+  machineId: string,
+  cycle_log_id: string,
+  signal: string,
+  anomaly: Anomaly
+) => {
+  try {
+    const res = await axiosInstance.get<TimeseriesResponse>(
+      `/timeseries?machine_id=${machineId}&cycle_log_id=${cycle_log_id}&signal=${signal}&anomaly=${anomaly}`
+    );
+
+    return res.data.Result;
+  } catch (err) {
+    console.error(err);
   }
 };

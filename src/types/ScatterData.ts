@@ -46,6 +46,8 @@ export interface CycleData {
     [signal: string]: SignalData;
   };
   id: string;
+  cycle_log_id: number;
+  start_time: Date;
 }
 
 export interface Cycle {
@@ -70,6 +72,9 @@ export interface AxisValueType {
   x: number;
   y: number;
   id: string;
+  cycle_log_id: number;
+  anomaly: Anomaly;
+  start_time: Date;
 }
 
 export interface ScatterPlotDataType {
@@ -82,4 +87,37 @@ export interface ThresholdDataType {
   x1: number;
   x2: number;
   y: number;
+}
+
+export type ScatterPlotType = {
+  xTicks: number[];
+  scatterPlotData: ScatterPlotDataType;
+  thresholds: ThresholdDataType[];
+  machineId: string;
+  signal: string;
+  changeLogs: ChangeLogEntry[];
+  sequence: string;
+};
+
+export enum Anomaly {
+  Green = "green",
+  Black = "black",
+  Red = "red",
+}
+
+export interface TimeSeriesDataType {
+  data: {
+    [cycle_log_id: string]: {
+      cycle_data: {
+        [signal: string]: {
+          [time: string]: number;
+        };
+      };
+    };
+  };
+}
+
+export interface TimeseriesResponse {
+  status: boolean;
+  Result: TimeSeriesDataType;
 }
