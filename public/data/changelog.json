@@ -198,7 +198,7 @@
     {
       "id": "59ec8bc9c1554280b653bbfe509e16aa",
       "model_type": "spindle_load",
-      "start_time": "2024-09-04T09:29:25",
+      "start_time": "2025-04-04T09:29:25",
       "customer_id": "48160dddd6e14cf1bca0a5c19aba5013",
       "machine_id": "1e776bfb2d2947648a8c01d60670af94",
       "learned_time": "2025-01-27T11:17:54",

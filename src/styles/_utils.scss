@@ -1,9 +1,9 @@
-@mixin verticalCenter(){
+@mixin verticalCenter() {
     display: flex;
     align-items: center;
 }
 
-@mixin flexCenter(){
+@mixin flexCenter() {
     display: flex;
     justify-content: center;
     align-items: center;

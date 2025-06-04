@@ -1,12 +1,10 @@
 import Drawer from "@mui/material/Drawer";
-import {
-  Box,
-  List,
-  ListItem,
-  ListItemButton,
-  ListItemIcon,
-  ListItemText,
-} from "@mui/material";
+import Box from "@mui/material/Box";
+import List from "@mui/material/List";
+import ListItem from "@mui/material/ListItem";
+import ListItemButton from "@mui/material/ListItemButton";
+import ListItemIcon from "@mui/material/ListItemIcon";
+import ListItemText from "@mui/material/ListItemText";
 import "./Drawer.scss";
 import { useDispatch, useSelector } from "react-redux";
 import type { RootState } from "../store/store";
