@@ -27,8 +27,9 @@ import { addDays } from "date-fns";
 import CircularProgress from "@mui/material/CircularProgress";
 import ScatterPlotGraph from "../components/ScatterPlotGraph";
 import TimeseriesGraph from "../components/TimeseriesGraph";
-import { useSelector } from "react-redux";
-import type { RootState } from "../store/store";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../store/store";
+import { saveSearchValueSnapShot } from "../reducers/mainSlice";
 
 const machines = [
   {
@@ -68,6 +69,7 @@ const ScatterData = () => {
   const { timeSeriesData, loading } = useSelector(
     (state: RootState) => state.main
   );
+  const dispatch = useDispatch<AppDispatch>();
 
   const onMachineChange = (event: SelectChangeEvent) => {
     setMachineId(event.target.value);
@@ -92,19 +94,6 @@ const ScatterData = () => {
   const onToolChange = (event: SelectChangeEvent) => {
     const sequence = event.target.value;
     setToolSequence(sequence);
-
-    const selectedThreshold: ThresholdDataType[] = [];
-
-    changeLogs.forEach((log) => {
-      const formattedThreshold: ThresholdDataType = {
-        x1: new Date(log.start_time).getTime(),
-        x2: new Date(log.end_time).getTime(),
-        y: log.learned_parameters[sequence].threshold,
-      };
-      selectedThreshold.push(formattedThreshold);
-    });
-
-    setThresholds(selectedThreshold);
   };
 
   const formatToolTOptions = (
@@ -140,10 +129,35 @@ const ScatterData = () => {
       const xTicks = generateXAxisTicks(startDate, endDate);
       setXTicks(xTicks);
 
-      // Hardcoding first signal from signals array as there is no mentioned option to select signal
       const formattedPredictionData = formatPredictionData(predictions, signal);
       setScatterPlotData(formattedPredictionData);
+
+      const selectedThreshold = getThreshold(toolSequence);
+      setThresholds(selectedThreshold);
+
+      dispatch(
+        saveSearchValueSnapShot({
+          tool: toolSequence,
+          machineId: machineId,
+          changeLogs: changeLogs,
+        })
+      );
     });
+  };
+
+  const getThreshold = (sequence: string) => {
+    const selectedThreshold: ThresholdDataType[] = [];
+
+    changeLogs.forEach((log) => {
+      const formattedThreshold: ThresholdDataType = {
+        x1: new Date(log.start_time).getTime(),
+        x2: new Date(log.end_time).getTime(),
+        y: log.learned_parameters[sequence].threshold,
+      };
+      selectedThreshold.push(formattedThreshold);
+    });
+
+    return selectedThreshold;
   };
 
   const formatPredictionData = (
@@ -225,6 +239,7 @@ const ScatterData = () => {
             to_time
           );
           if (changeLogResponse && changeLogResponse.length) {
+            // Hardcoding first signal from signals array as there is no mentioned option to select signal
             const signal = changeLogResponse[0].config_parameters.signals[0];
             setSignal(signal);
             setChangeLogs(changeLogResponse);
@@ -235,7 +250,7 @@ const ScatterData = () => {
   }, [machineId, startDate, startTime, endDate, endTime]);
 
   return (
-    <div className="wrapper">
+    <div className="scatter-wrapper">
       {(pending || loading) && (
         <Box className="loader">
           <CircularProgress />
@@ -374,10 +389,7 @@ const ScatterData = () => {
         xTicks={xTicks}
         scatterPlotData={scatterPlotData}
         thresholds={thresholds}
-        machineId={machineId}
         signal={signal}
-        changeLogs={changeLogs}
-        sequence={toolSequence}
       />
 
       {timeSeriesData && <TimeseriesGraph signal={signal} />}

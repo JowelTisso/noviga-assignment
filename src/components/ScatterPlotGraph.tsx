@@ -30,8 +30,9 @@ import {
 import Box from "@mui/material/Box";
 import CustomTooltip from "./CustomTooltip";
 import { getTimeseriesData } from "../services/scatterData";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { setLoading, setTimeSeriesData } from "../reducers/mainSlice";
+import type { RootState } from "../store/store";
 
 const legends = [
   {
@@ -68,16 +69,18 @@ const tempCycleLogId = {
 };
 
 const ScatterPlotGraph = memo(
-  ({
-    xTicks,
-    scatterPlotData,
-    thresholds,
-    machineId,
-    signal,
-    changeLogs,
-    sequence,
-  }: ScatterPlotType) => {
+  ({ xTicks, scatterPlotData, thresholds, signal }: ScatterPlotType) => {
     const dispatch = useDispatch();
+
+    const toolSequenceSnapshot = useSelector(
+      (state: RootState) => state.main.toolSequenceSnapshot
+    );
+    const machineIdSnapshot = useSelector(
+      (state: RootState) => state.main.machineIdSnapshot
+    );
+    const changeLogsSnapshot = useSelector(
+      (state: RootState) => state.main.changeLogsSnapshot
+    );
 
     const dataPointClickHandler = async (cycleData: {
       cycle_log_id: string;
@@ -87,10 +90,14 @@ const ScatterPlotGraph = memo(
       dispatch(setLoading(true));
       const { cycle_log_id, anomaly, start_time } = cycleData;
 
-      const idealSignals = fetchIdealSignals(changeLogs, start_time, sequence);
+      const idealSignals = fetchIdealSignals(
+        changeLogsSnapshot,
+        start_time,
+        toolSequenceSnapshot
+      );
 
       const timeseriesResponse = await getTimeseriesData(
-        machineId,
+        machineIdSnapshot,
         cycle_log_id,
         signal,
         anomaly

@@ -93,10 +93,7 @@ export type ScatterPlotType = {
   xTicks: number[];
   scatterPlotData: ScatterPlotDataType;
   thresholds: ThresholdDataType[];
-  machineId: string;
   signal: string;
-  changeLogs: ChangeLogEntry[];
-  sequence: string;
 };
 
 export enum Anomaly {
