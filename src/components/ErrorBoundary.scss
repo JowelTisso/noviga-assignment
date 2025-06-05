@@ -1,0 +1,11 @@
+.error-boundary-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90%;
+    flex-direction: column;
+
+    .img-error {
+        width: 50%;
+    }
+}

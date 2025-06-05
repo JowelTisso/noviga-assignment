@@ -30,6 +30,10 @@ import TimeseriesGraph from "../components/TimeseriesGraph";
 import { useDispatch, useSelector } from "react-redux";
 import type { AppDispatch, RootState } from "../store/store";
 import { saveSearchValueSnapShot } from "../reducers/mainSlice";
+import Snackbar from "@mui/material/Snackbar";
+import { IconButton } from "@mui/material";
+import { X } from "lucide-react";
+import { COLORS } from "../utils/Colors";
 
 const machines = [
   {
@@ -43,6 +47,15 @@ const machines = [
     name: "SSP0167",
   },
 ];
+
+const ToolSequenceMap = {
+  "101": 1,
+  "201": 2,
+  "301": 3,
+  "401": 4,
+  "501": 5,
+  "601": 6,
+};
 
 const ScatterData = () => {
   const [machineId, setMachineId] = useState("");
@@ -64,12 +77,17 @@ const ScatterData = () => {
   const [scatterPlotData, setScatterPlotData] = useState<ScatterPlotDataType>();
   const [thresholds, setThresholds] = useState<ThresholdDataType[]>([]);
   const [signal, setSignal] = useState("");
+  const [openSnackbar, setOpenSnackbar] = useState(false);
+  const [errorMsg, setErrorMsg] = useState("");
+  const [predictionData, setPredictionData] = useState<PredictionData>();
 
   const [pending, startTransition] = useTransition();
   const { timeSeriesData, loading } = useSelector(
     (state: RootState) => state.main
   );
   const dispatch = useDispatch<AppDispatch>();
+
+  console.log(predictionData);
 
   const onMachineChange = (event: SelectChangeEvent) => {
     setMachineId(event.target.value);
@@ -119,29 +137,40 @@ const ScatterData = () => {
 
   const onSearch = () => {
     startTransition(async () => {
-      const from_time = combineDateAndTimeToISO(startDate, startTime);
-      const to_time = combineDateAndTimeToISO(endDate, endTime);
-      const predictions = await getPredictionData(
-        machineId,
-        from_time,
-        to_time
-      );
-      const xTicks = generateXAxisTicks(startDate, endDate);
-      setXTicks(xTicks);
+      try {
+        const from_time = combineDateAndTimeToISO(startDate, startTime);
+        const to_time = combineDateAndTimeToISO(endDate, endTime);
+        const predictions = await getPredictionData(
+          machineId,
+          from_time,
+          to_time
+        );
+        if (predictions) {
+          setPredictionData(predictions);
+        }
+        const xTicks = generateXAxisTicks(startDate, endDate);
+        setXTicks(xTicks);
 
-      const formattedPredictionData = formatPredictionData(predictions, signal);
-      setScatterPlotData(formattedPredictionData);
+        const formattedPredictionData = formatPredictionData(
+          predictions,
+          signal
+        );
+        setScatterPlotData(formattedPredictionData);
 
-      const selectedThreshold = getThreshold(toolSequence);
-      setThresholds(selectedThreshold);
+        const selectedThreshold = getThreshold(toolSequence);
+        setThresholds(selectedThreshold);
 
-      dispatch(
-        saveSearchValueSnapShot({
-          tool: toolSequence,
-          machineId: machineId,
-          changeLogs: changeLogs,
-        })
-      );
+        dispatch(
+          saveSearchValueSnapShot({
+            tool: toolSequence,
+            machineId: machineId,
+            changeLogs: changeLogs,
+          })
+        );
+      } catch (err) {
+        setErrorMsg(err);
+        setOpenSnackbar(true);
+      }
     });
   };
 
@@ -227,6 +256,26 @@ const ScatterData = () => {
       ? false
       : true;
 
+  const handleClose = () => {
+    setOpenSnackbar(false);
+  };
+
+  const action = (
+    <>
+      <Button color="secondary" size="small" onClick={handleClose}>
+        UNDO
+      </Button>
+      <IconButton
+        size="small"
+        aria-label="close"
+        color="inherit"
+        onClick={handleClose}
+      >
+        <X />
+      </IconButton>
+    </>
+  );
+
   useEffect(() => {
     startTransition(() => {
       if (machineId && startDate && startTime && endDate && endTime) {
@@ -252,9 +301,9 @@ const ScatterData = () => {
   return (
     <div className="scatter-wrapper">
       {(pending || loading) && (
-        <Box className="loader">
+        <div className="loader">
           <CircularProgress />
-        </Box>
+        </div>
       )}
       <Box className="filter-box">
         <FormControl className="form-control" size="small">
@@ -366,22 +415,18 @@ const ScatterData = () => {
       <Box className="box">
         <p className="title">Unprocessed Tool</p>
         <Stack direction="row" spacing={1}>
-          <Chip label="1:401" variant="outlined" sx={{ borderRadius: 3 }} />
-          <Chip
-            label="Chip Outlined"
-            variant="outlined"
-            sx={{ borderRadius: 3 }}
-          />
-          <Chip
-            label="Chip Outlined"
-            variant="outlined"
-            sx={{ borderRadius: 3 }}
-          />
-          <Chip
-            label="Chip Outlined"
-            variant="outlined"
-            sx={{ borderRadius: 3 }}
-          />
+          {predictionData &&
+            Object.entries(predictionData.unprocessed_sequences)?.map(
+              ([sequence, value]) => {
+                return (
+                  <Chip
+                    label={`${ToolSequenceMap[sequence]}:${value}`}
+                    variant="outlined"
+                    sx={{ borderRadius: 3 }}
+                  />
+                );
+              }
+            )}
         </Stack>
       </Box>
 
@@ -393,6 +438,24 @@ const ScatterData = () => {
       />
 
       {timeSeriesData && <TimeseriesGraph signal={signal} />}
+
+      <Snackbar
+        open={openSnackbar}
+        autoHideDuration={6000}
+        onClose={handleClose}
+        message={errorMsg}
+        action={action}
+        anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+        slotProps={{
+          content: {
+            sx: {
+              backgroundColor: COLORS.node_white,
+              color: COLORS.font_black,
+              boxShadow: 3,
+            },
+          },
+        }}
+      />
     </div>
   );
 };

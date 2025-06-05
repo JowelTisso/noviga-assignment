@@ -6,15 +6,18 @@ import { BrowserRouter } from "react-router-dom";
 import { store } from "./store/store.ts";
 import { Provider } from "react-redux";
 import { makeServer } from "./backend/server.ts";
+import ErrorBoundary from "./components/ErrorBoundary.tsx";
 
 makeServer();
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <BrowserRouter>
-      <Provider store={store}>
-        <App />
-      </Provider>
-    </BrowserRouter>
+    <ErrorBoundary>
+      <BrowserRouter>
+        <Provider store={store}>
+          <App />
+        </Provider>
+      </BrowserRouter>
+    </ErrorBoundary>
   </StrictMode>
 );

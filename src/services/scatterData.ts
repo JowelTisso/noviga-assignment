@@ -37,7 +37,8 @@ export const getPredictionData = async (
     );
     return res.data.Result;
   } catch (err) {
-    console.error(err);
+    console.error(err.response.data.Error);
+    throw "Data points for this machine not found!";
   }
 };
 
