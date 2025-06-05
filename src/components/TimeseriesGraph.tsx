@@ -12,13 +12,15 @@ import {
 } from "recharts";
 import type { RootState } from "../store/store";
 import type { FormattedTimeSeriesDataType } from "../reducers/mainSlice";
-import { useMemo } from "react";
+import { useMemo, memo } from "react";
 import { COLORS } from "../utils/Colors";
 import CustomTooltip from "./CustomTooltip";
 import { GraphType, type TooltipPayload } from "../types/ScatterData";
 
-const TimeseriesGraph = ({ signal }: { signal: string }) => {
-  const { timeSeriesData } = useSelector((state: RootState) => state.main);
+const TimeseriesGraph = memo(({ signal }: { signal: string }) => {
+  const timeSeriesData = useSelector(
+    (state: RootState) => state.main.timeSeriesData
+  );
 
   const formatTimeSeriesData = (
     timeSeriesData: FormattedTimeSeriesDataType
@@ -104,6 +106,6 @@ const TimeseriesGraph = ({ signal }: { signal: string }) => {
       </ResponsiveContainer>
     </Box>
   );
-};
+});
 
 export default TimeseriesGraph;

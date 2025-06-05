@@ -28,7 +28,7 @@ const menuList = [
 ];
 
 const SideNav: React.FC = () => {
-  const { openDrawer } = useSelector((state: RootState) => state.main);
+  const openDrawer = useSelector((state: RootState) => state.main.openDrawer);
   const dispatch = useDispatch();
   const navigate = useNavigate();
 

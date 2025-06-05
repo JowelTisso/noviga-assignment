@@ -124,7 +124,9 @@ const TreeData: React.FC = () => {
   const [edges, setEdges, onEdgesChange] = useEdgesState([]);
   const [treeVisualData, setTreeVisualData] = useState<TreeVisualDataType>();
 
-  const { openNodeModal } = useSelector((state: RootState) => state.tree);
+  const openNodeModal = useSelector(
+    (state: RootState) => state.tree.openNodeModal
+  );
   const dispatch = useDispatch();
 
   const [pending, startTransition] = useTransition();

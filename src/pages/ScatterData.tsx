@@ -13,7 +13,7 @@ import "./ScatterData.scss";
 import Stack from "@mui/material/Stack";
 import Chip from "@mui/material/Chip";
 
-import { combineDateAndTimeToISO } from "../utils/helper";
+import { combineDateAndTimeToISO, debounce } from "../utils/helper";
 import {
   Anomaly,
   type AxisValueType,
@@ -82,12 +82,11 @@ const ScatterData = () => {
   const [predictionData, setPredictionData] = useState<PredictionData>();
 
   const [pending, startTransition] = useTransition();
-  const { timeSeriesData, loading } = useSelector(
-    (state: RootState) => state.main
+  const timeSeriesData = useSelector(
+    (state: RootState) => state.main.timeSeriesData
   );
+  const loading = useSelector((state: RootState) => state.main.loading);
   const dispatch = useDispatch<AppDispatch>();
-
-  console.log(predictionData);
 
   const onMachineChange = (event: SelectChangeEvent) => {
     setMachineId(event.target.value);
@@ -405,7 +404,7 @@ const ScatterData = () => {
           <Button
             variant="contained"
             size="medium"
-            onClick={onSearch}
+            onClick={debounce(onSearch)}
             disabled={isSearchActive}
           >
             Search
@@ -420,6 +419,7 @@ const ScatterData = () => {
               ([sequence, value]) => {
                 return (
                   <Chip
+                    key={sequence}
                     label={`${ToolSequenceMap[sequence]}:${value}`}
                     variant="outlined"
                     sx={{ borderRadius: 3 }}
