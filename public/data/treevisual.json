@@ -1,0 +1,3408 @@
+{
+  "bypass_list": [48, 34, 47, 14, 39],
+  "customer": "Ather",
+  "good_id": 1,
+  "not_allowed_list": [33],
+  "part_name": "Ather Main Board",
+  "prod_machine_map": [
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/1",
+      "id": 1,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": null,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": null,
+        "good_id": null,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 1,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Tab Cut (De-paneling)",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Tab Cut (De-paneling)",
+      "station_number": "M001"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/2",
+      "id": 2,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 3,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 1",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 1",
+      "station_number": "M003"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/3",
+      "id": 3,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 4,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 2",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 2",
+      "station_number": "M004"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/4",
+      "id": 4,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 5,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 3",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 3",
+      "station_number": "M005"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/5",
+      "id": 5,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 6,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 4",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 4",
+      "station_number": "M006"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/6",
+      "id": 6,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 7,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 5",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 5",
+      "station_number": "M007"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/7",
+      "id": 7,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 8,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 6",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 6",
+      "station_number": "M008"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/8",
+      "id": 8,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 9,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 7",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 7",
+      "station_number": "M009"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/9",
+      "id": 9,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 10,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 8",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 8",
+      "station_number": "M010"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/10",
+      "id": 10,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 11,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 9",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 9",
+      "station_number": "M011"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/11",
+      "id": 11,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 12,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 10",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 10",
+      "station_number": "M012"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/12",
+      "id": 12,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 13,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 11",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 11",
+      "station_number": "M013"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": true,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/13",
+      "id": 13,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 14,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "MI Station 12",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "MI Station 12",
+      "station_number": "M014"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/15",
+      "id": 15,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 16,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Wave Soldering Machine",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Wave Soldering Machine",
+      "station_number": "M016"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [
+        {
+          "check_traceability": true,
+          "child_code_name": "controlpcb",
+          "child_name": "Control PCB",
+          "enabled": true,
+          "good_barcode_id": 9,
+          "good_id": 1,
+          "partmodel_id": 2,
+          "pfd_child_allowed_part_id": 17,
+          "pfd_child_barcode_id": 17,
+          "save_produce": true,
+          "scan_order": 2,
+          "scan_template": {
+            "parameters": [],
+            "qr_length": null
+          },
+          "scan_template_bool": false
+        },
+        {
+          "check_traceability": false,
+          "child_code_name": "auxillarypcb",
+          "child_name": "Auxillary PCB",
+          "enabled": true,
+          "good_barcode_id": 8,
+          "good_id": 1,
+          "partmodel_id": 3,
+          "pfd_child_allowed_part_id": 36,
+          "pfd_child_barcode_id": 36,
+          "save_produce": true,
+          "scan_order": 3,
+          "scan_template": {
+            "parameters": [],
+            "qr_length": null
+          },
+          "scan_template_bool": false
+        }
+      ],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/16",
+      "id": 16,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 17,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Post WSM Visual Inspection",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Post WSM Visual Inspection",
+      "station_number": "M017"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/17",
+      "id": 17,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [16],
+      "machine_id": 18,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 5,
+      "name": "Rework",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Rework",
+      "station_number": "M018"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/18",
+      "id": 18,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 23,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Fan Assembly & Screwing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Fan Assembly & Screwing",
+      "station_number": "M023"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/19",
+      "id": 19,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 24,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "ADHESIVE DISPENSING",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "ADHESIVE DISPENSING",
+      "station_number": "M024"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 3,
+          "name": "pfd_nfs",
+          "pfd_std_params_id": 4,
+          "value": "ATHER CHARGER REV01"
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 21,
+          "name": "pogo_pins_remaining_life",
+          "pfd_std_params_id": 64,
+          "value": 49678
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/20",
+      "id": 20,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [16],
+      "machine_id": 19,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "ICT",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "ICT",
+      "station_number": "M019"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 17,
+          "name": "scanner_prefix",
+          "pfd_std_params_id": 34,
+          "value": "\\u0019\\u0000"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/21",
+      "id": 21,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [101],
+      "machine_id": 25,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Auto Component Screwing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Auto Component Screwing",
+      "station_number": "M025"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/22",
+      "id": 22,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 27,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Fan Wire Soldering",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Fan Wire Soldering",
+      "station_number": "M027"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 23,
+          "name": "origin_x",
+          "pfd_std_params_id": 77,
+          "value": null
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 24,
+          "name": "origin_y",
+          "pfd_std_params_id": 78,
+          "value": null
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 25,
+          "name": "barcode_darkness",
+          "pfd_std_params_id": 79,
+          "value": null
+        },
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 26,
+          "name": "printer_command",
+          "pfd_std_params_id": 80,
+          "value": null
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 27,
+          "name": "num_of_prints",
+          "pfd_std_params_id": 81,
+          "value": null
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/23",
+      "id": 23,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 22,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Soldering Visual Inspection",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Soldering Visual Inspection",
+      "station_number": "M022"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 2,
+          "name": "origin_x",
+          "pfd_std_params_id": 3,
+          "value": 142
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 4,
+          "name": "origin_y",
+          "pfd_std_params_id": 5,
+          "value": 143
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 5,
+          "name": "barcode_darkness",
+          "pfd_std_params_id": 6,
+          "value": 15
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 28,
+          "name": "num_of_prints",
+          "pfd_std_params_id": 82,
+          "value": 1
+        },
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 29,
+          "name": "printer_command",
+          "pfd_std_params_id": 83,
+          "value": "^MDbarcode_darkness\\r,\\n^PR2\\r,\\nCT~~CD,~CC^~CT~\\n^XA\\n~TA000\\n~JSN\\n^LT0\\n^MNW\\n^MTT\\n^PON\\n^PMN\\n^LH0,0\\n^JMA\\n^PR4,4\\n~SD30\\n^JUS\\n^LRN\\n^CI27\\n^PA0,1,1,0\\n^XZ\\n^XA\\n^MMT\\n^PW350\\n^LL300\\n^LS0\\n^BY3,5^FTorigin_x,origin_y^BXN,4,250^FDbarcode_value^FS\\n^PQ1,0,1,Y\\n^XZ\\n"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/24",
+      "id": 24,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [21, 178],
+      "machine_id": 26,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "I/P & O/P Cable grommet Screwing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "I/P & O/P Cable grommet Screwing",
+      "station_number": "M026"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/25",
+      "id": 25,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 31,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "LED Cord Wire Gluing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "LED Cord Wire Gluing",
+      "station_number": "M031"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/26",
+      "id": 26,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [24],
+      "machine_id": 29,
+      "master_barcodes": "1205360101006192911241025, 1205360101006191710240278, 1205360101006192911241025",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Hi-Pot Testing - 1",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Hi-Pot Testing - 1",
+      "station_number": "M029"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/27",
+      "id": 27,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [26],
+      "machine_id": 30,
+      "master_barcodes": "1205360101006192911241059, 1205360101006190909240094, 1205360101006192911241107",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Post IM Testing - 2",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Post IM Testing - 2",
+      "station_number": "M030"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 1,
+          "name": "pfd_nfs",
+          "pfd_std_params_id": 1,
+          "value": "ather_new_1,ather_new_2,ather_new_3,Ather Main Board"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/28",
+      "id": 28,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [27, 165],
+      "machine_id": 32,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 50,
+      "max_pass_runs": 50,
+      "name": "Post Ageing Testing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Post Ageing Testing",
+      "station_number": "M032"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": true,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/29",
+      "id": 29,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [30],
+      "machine_id": 33,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 0,
+      "name": "Bottom Cover Screwing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Botton Cover Screwing",
+      "station_number": "M033"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/30",
+      "id": 30,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [28, 166],
+      "machine_id": 35,
+      "master_barcodes": "1205360101006192911241107, 1205360101006192911241097",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Hi Pot Testing - 2",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Hi Pot Testing - 2",
+      "station_number": "M035"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": true,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/31",
+      "id": 31,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 34,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Handle bar Screwing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Handle bar Screwing",
+      "station_number": "M034"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": true,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 18,
+          "name": "scanner_prefix",
+          "pfd_std_params_id": 35,
+          "value": "\\u0019\\u0000"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/32",
+      "id": 32,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 47,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Brick & Light Guide with Top Cover Assy",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Brick & Light Guide with Top Cover Assy",
+      "station_number": "M047"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": true,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 19,
+          "name": "scanner_prefix",
+          "pfd_std_params_id": 36,
+          "value": "\\u0019\\u0000"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/33",
+      "id": 33,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 48,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Back Cover Assy",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Back Cover Assy",
+      "station_number": "M048"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/34",
+      "id": 34,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [30],
+      "machine_id": 36,
+      "master_barcodes": "1205360101006192911241086, 1205360101006192402251850",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Functional Testing & Stamping 1",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Functional Testing & Stamping",
+      "station_number": "M036"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 6,
+          "name": "origin_x",
+          "pfd_std_params_id": 13,
+          "value": 50
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 7,
+          "name": "origin_y",
+          "pfd_std_params_id": 14,
+          "value": 217
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 8,
+          "name": "barcode_darkness",
+          "pfd_std_params_id": 15,
+          "value": 15
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 9,
+          "name": "num_of_prints",
+          "pfd_std_params_id": 16,
+          "value": 2
+        },
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 10,
+          "name": "printer_command",
+          "pfd_std_params_id": 17,
+          "value": "^MDbarcode_darkness\\r,\\n^PR2\\r,\\nCT~~CD,~CC^~CT~\\n^XA\\n~TA000\\n~JSN\\n^LT0\\n^MNW\\n^MTT\\n^PON\\n^PMN\\n^LH0,0\\n^JMA\\n^PR4,4\\n~SD30\\n^JUS\\n^LRN\\n^CI27\\n^PA0,1,1,0\\n^XZ\\n^XA\\n^MMT\\n^PW220\\n^LL180\\n^LS0\\n^FTorigin_x,origin_y\\n^BQ,2,7^FDQA,barcode_value^FS\\n^PQ1,0,1,Y\\n^XZ"
+        },
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 11,
+          "name": "ginID",
+          "pfd_std_params_id": 23,
+          "value": "machine_49:gin"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/35",
+      "id": 35,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [99, 17],
+      "machine_id": 37,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Final Visual Inspection",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Final Visual Inspection",
+      "station_number": "M037"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/99",
+      "id": 99,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [34, 161, 164],
+      "machine_id": 49,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Laser Marking",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": "gin",
+        "from_cycle_data": true,
+        "good_id": 1,
+        "output_goodbarcode_id": 4,
+        "output_partmodel_id": 1,
+        "parts_per_cycle": 1,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Laser Marking",
+      "station_number": "M49"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/100",
+      "id": 100,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 50,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Flashing_1",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "FLASHING",
+      "station_number": "M050"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/101",
+      "id": 101,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [20],
+      "machine_id": 20,
+      "master_barcodes": "1205360101006192911241071, 1205360101006192911241091, 1205360101006192911241091, 1205360101006192911241101, 1205360101006192511240854, 1205360101006192402251791, 1205360101006192911241091, ",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Pre IM Testing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Pre IM Testing",
+      "station_number": "M020"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": true,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 20,
+          "name": "scanner_prefix",
+          "pfd_std_params_id": 43,
+          "value": "\\u0019\\u0000"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/103",
+      "id": 103,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 39,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Handle & Strap Assy",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Handle & Strap Assy",
+      "station_number": "M047"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/161",
+      "id": 161,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [30],
+      "machine_id": 54,
+      "master_barcodes": "1205360101006192911241086",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Functional Testing & Stamping 2",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Functional Testing & Stamping 2",
+      "station_number": "M054"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/164",
+      "id": 164,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [30],
+      "machine_id": 57,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Ather FCT 3",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Ather Final Tester",
+      "station_number": "57"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/165",
+      "id": 165,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [26],
+      "machine_id": 56,
+      "master_barcodes": "1205360101006192911241059, 1205360101006190909240094, 1205360101006192911241107",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Post IM (2nd)",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Post IM (2nd)",
+      "station_number": "M056"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 38,
+          "name": "pfd_nfs",
+          "pfd_std_params_id": 172,
+          "value": "ather_new_1,ather_new_2,ather_new_3,Ather Main Board"
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/166",
+      "id": 166,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [27, 165],
+      "machine_id": 59,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Ageing-2",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Ageing-2",
+      "station_number": "M059"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/175",
+      "id": 175,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [34, 161, 164],
+      "machine_id": 63,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Ather Laser Marking",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": "gin",
+        "from_cycle_data": true,
+        "good_id": 1,
+        "output_goodbarcode_id": 4,
+        "output_partmodel_id": 1,
+        "parts_per_cycle": 1,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Ather Laser Marking",
+      "station_number": "M063"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 40,
+          "name": "origin_x",
+          "pfd_std_params_id": 176,
+          "value": 50
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 41,
+          "name": "origin_y",
+          "pfd_std_params_id": 177,
+          "value": 217
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 42,
+          "name": "barcode_darkness",
+          "pfd_std_params_id": 178,
+          "value": 15
+        },
+        {
+          "datatype": "number",
+          "machine_controller_param_id": 43,
+          "name": "num_of_prints",
+          "pfd_std_params_id": 179,
+          "value": 2
+        },
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 44,
+          "name": "printer_command",
+          "pfd_std_params_id": 180,
+          "value": "^MDbarcode_darkness\\r,\\n^PR2\\r,\\nCT~~CD,~CC^~CT~\\n^XA\\n~TA000\\n~JSN\\n^LT0\\n^MNW\\n^MTT\\n^PON\\n^PMN\\n^LH0,0\\n^JMA\\n^PR4,4\\n~SD30\\n^JUS\\n^LRN\\n^CI27\\n^PA0,1,1,0\\n^XZ\\n^XA\\n^MMT\\n^PW220\\n^LL180\\n^LS0\\n^FTorigin_x,origin_y\\n^BQ,2,7^FDQA,barcode_value^FS\\n^PQ1,0,1,Y\\n^XZ"
+        },
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 45,
+          "name": "ginID",
+          "pfd_std_params_id": 181,
+          "value": "machine_63:gin,machine_49:gin"
+        }
+      ],
+      "failure_reason": [
+        {
+          "active": true,
+          "id": 18,
+          "name": "Handle fitment issue",
+          "pfd_part_machine_id": 176
+        },
+        {
+          "active": true,
+          "id": 19,
+          "name": "Cage Aesthetic Issue",
+          "pfd_part_machine_id": 176
+        },
+        {
+          "active": true,
+          "id": 20,
+          "name": "Case Damage",
+          "pfd_part_machine_id": 176
+        },
+        {
+          "active": true,
+          "id": 21,
+          "name": "Input cable damage",
+          "pfd_part_machine_id": 176
+        },
+        {
+          "active": true,
+          "id": 22,
+          "name": "Output cable damage",
+          "pfd_part_machine_id": 176
+        }
+      ],
+      "filelink": "/noviga/returnfiles/176",
+      "id": 176,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [175, 99],
+      "machine_id": 64,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Ather Final Visual Inspection",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Ather Final Visual Inspection",
+      "station_number": "M064"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [
+        {
+          "datatype": "string",
+          "machine_controller_param_id": 39,
+          "name": "scanner_prefix",
+          "pfd_std_params_id": 187,
+          "value": "  "
+        }
+      ],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/178",
+      "id": 178,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [101],
+      "machine_id": 62,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 3,
+      "max_pass_runs": 1,
+      "name": "Manual Auto component Screwing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Manual Component Screwing",
+      "station_number": "M062"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/179",
+      "id": 179,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 66,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 0,
+      "max_pass_runs": 0,
+      "name": "Ather LED Testing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Ather LED Testing",
+      "station_number": "M066"
+    },
+    {
+      "batch_parts": [],
+      "bypass_allowed": false,
+      "child_parts": [],
+      "consumables": [],
+      "controller_params": [],
+      "failure_reason": [],
+      "filelink": "/noviga/returnfiles/180",
+      "id": 180,
+      "ideal_cycle_time": 60.0,
+      "in_goodbarcode_id": 1,
+      "in_goodbarcode_template": null,
+      "input_barcode": {
+        "good_barcode_id": 1,
+        "good_id": 1,
+        "template": {
+          "parameters": [],
+          "qr_length": null
+        },
+        "template_show": false
+      },
+      "input_stations": [],
+      "machine_id": 67,
+      "master_barcodes": "",
+      "max_fail_runs_before_rework": 0,
+      "max_pass_runs": 0,
+      "name": "Ather Final LED Testing",
+      "other_data": {},
+      "output_barcode": {
+        "data_variable_name": null,
+        "from_cycle_data": false,
+        "good_id": null,
+        "output_goodbarcode_id": null,
+        "output_partmodel_id": null,
+        "parts_per_cycle": null,
+        "same_as_child_part": false,
+        "same_as_child_part_template": null,
+        "template": {
+          "counter": {
+            "length": 4,
+            "start_index": 26
+          },
+          "datetime": {
+            "format": "DD/MM/YYYY",
+            "start_index": 14
+          },
+          "default_character": " ",
+          "part_attributes": {},
+          "shift": {
+            "format": "L",
+            "start_index": 24
+          },
+          "uid": {
+            "start_index": null,
+            "value": null
+          }
+        },
+        "template_show": false
+      },
+      "partmodel_id": 1,
+      "qty_interlock_ratio": null,
+      "qty_interlock_row_id": null,
+      "rework_skip": false,
+      "station_name": "Ather Final LED Testing",
+      "station_number": "M067"
+    }
+  ]
+}

@@ -1,12 +1,11 @@
 @use "../styles/variables" as *;
 @use "../styles/utils" as *;
 
-.wrapper {
+.scatter-wrapper {
     width: 90%;
     margin: 0 auto;
     padding: 0 15px;
     padding-bottom: 50px;
-    position: relative;
 }
 
 .loader {

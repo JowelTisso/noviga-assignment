@@ -1,0 +1,30 @@
+@use '../styles/variables' as *;
+
+.node-tooltip {
+    background-color: lightblue;
+}
+
+.node-wrapper {
+    border: 1px solid $border-color;
+    width: 450px;
+    height: 50px;
+    border-radius: 10px;
+    padding: 2px;
+
+    &:hover {
+        background-color: $background-color-1;
+        color: $text-primary-color;
+    }
+
+    .inner-border {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        border: 1px solid $border-color;
+        height: 100%;
+        width: 100%;
+        font-size: 0.7rem;
+        border-radius: 7px;
+    }
+
+}

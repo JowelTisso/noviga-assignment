@@ -1,0 +1,12 @@
+@use "../styles/variables" as *;
+
+.modal-content {
+    border-radius: 5px;
+
+    .input-wrapper {
+        margin-top: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+    }
+}

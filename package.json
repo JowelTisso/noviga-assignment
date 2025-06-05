@@ -17,6 +17,7 @@
     "@reduxjs/toolkit": "^2.8.2",
     "@xyflow/react": "^12.6.4",
     "axios": "^1.9.0",
+    "dagre": "^0.8.5",
     "date-fns": "^4.1.0",
     "lucide-react": "^0.511.0",
     "miragejs": "^0.1.48",

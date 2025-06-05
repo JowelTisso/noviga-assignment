@@ -5,11 +5,11 @@ import AllRoutes from "./routes/AllRoutes";
 
 function App() {
   return (
-    <div>
+    <>
       <Header />
       <SideNav />
       <AllRoutes />
-    </div>
+    </>
   );
 }
 
