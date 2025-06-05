@@ -14,9 +14,11 @@ import { COLORS } from "../utils/Colors";
 import { format } from "date-fns";
 import {
   Anomaly,
+  GraphType,
   type ChangeLogEntry,
   type ScatterPlotType,
   type TimeSeriesDataType,
+  type TooltipPayload,
 } from "../types/ScatterData";
 import {
   Circle,
@@ -77,7 +79,7 @@ const ScatterPlotGraph = memo(
   }: ScatterPlotType) => {
     const dispatch = useDispatch();
 
-    const dataClickHandler = async (cycleData: {
+    const dataPointClickHandler = async (cycleData: {
       cycle_log_id: string;
       anomaly: Anomaly;
       start_time: Date;
@@ -159,7 +161,7 @@ const ScatterPlotGraph = memo(
           Object.entries(
             timeseriesResponse.data[cycle_log_id]?.cycle_data[signal]
           ).forEach(([time, value]) => {
-            timeRange.push(parseInt(time));
+            timeRange.push(parseFloat(time));
             actualSignals.push(value);
           });
         }
@@ -202,7 +204,7 @@ const ScatterPlotGraph = memo(
               ticks={xTicks}
               fontSize={12}
               domain={["dataMin", "dataMax"]}
-              label={{ value: "Time", position: "bottom" }}
+              label={{ value: "Time", position: "bottom", fontSize: 14 }}
               tickFormatter={(tick) => format(new Date(tick), "d MMM")}
             />
             <YAxis
@@ -211,12 +213,21 @@ const ScatterPlotGraph = memo(
               name="Values"
               fontSize={12}
               tickFormatter={(tick) => tick.toFixed(0)}
-              label={{ value: "Values", position: "left", angle: -90 }}
+              label={{
+                value: "Values",
+                position: "left",
+                angle: -90,
+                fontSize: 14,
+              }}
             />
             <Tooltip
               cursor={{ strokeDasharray: "3 3" }}
               content={({ active, payload }) => (
-                <CustomTooltip active={active} payload={payload} />
+                <CustomTooltip
+                  active={active}
+                  payload={payload as TooltipPayload[]}
+                  type={GraphType.GRAPH1}
+                />
               )}
             />
             <Scatter
@@ -224,7 +235,7 @@ const ScatterPlotGraph = memo(
               data={scatterPlotData?.anomalyFalseData}
               fill={COLORS.anomaly_false}
               isAnimationActive={false}
-              onClick={dataClickHandler}
+              onClick={dataPointClickHandler}
             />
             <Scatter
               name="Anomaly true"
@@ -232,7 +243,7 @@ const ScatterPlotGraph = memo(
               fill={COLORS.anomaly_true}
               isAnimationActive={false}
               shape="diamond"
-              onClick={dataClickHandler}
+              onClick={dataPointClickHandler}
             />
             <Scatter
               name="Sequence null"
@@ -240,7 +251,7 @@ const ScatterPlotGraph = memo(
               fill={COLORS.sequence_null}
               isAnimationActive={false}
               shape="triangle"
-              onClick={dataClickHandler}
+              onClick={dataPointClickHandler}
             />
             {thresholds?.map(({ x1, x2, y }) => (
               <ReferenceLine

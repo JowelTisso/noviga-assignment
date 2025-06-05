@@ -121,3 +121,19 @@ export interface TimeseriesResponse {
   status: boolean;
   Result: TimeSeriesDataType;
 }
+
+export enum GraphType {
+  GRAPH1 = "graph1",
+  GRAPH2 = "graph2",
+}
+
+export interface TooltipPayload {
+  payload: { [key: string]: string };
+  value: number;
+}
+
+export type ToolTipPropType = {
+  active: boolean;
+  payload: TooltipPayload[];
+  type: GraphType;
+};

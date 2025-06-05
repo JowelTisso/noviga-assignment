@@ -14,6 +14,8 @@ import type { RootState } from "../store/store";
 import type { FormattedTimeSeriesDataType } from "../reducers/mainSlice";
 import { useMemo } from "react";
 import { COLORS } from "../utils/Colors";
+import CustomTooltip from "./CustomTooltip";
+import { GraphType, type TooltipPayload } from "../types/ScatterData";
 
 const TimeseriesGraph = ({ signal }: { signal: string }) => {
   const { timeSeriesData } = useSelector((state: RootState) => state.main);
@@ -68,17 +70,33 @@ const TimeseriesGraph = ({ signal }: { signal: string }) => {
             bottom: 20,
           }}
         >
-          <CartesianGrid strokeDasharray="3 3" />
+          <CartesianGrid vertical={false} />
           <XAxis
             dataKey="time"
-            label={{ value: "Time", position: "bottom" }}
+            label={{ value: "Seconds", position: "bottom", fontSize: 14 }}
             fontSize={12}
+            interval={3}
+            tickFormatter={(tick) => parseInt(tick).toString()}
           />
           <YAxis
-            label={{ value: "Values", position: "left", angle: -90 }}
+            label={{
+              value: "Values",
+              position: "left",
+              angle: -90,
+              fontSize: 14,
+            }}
             fontSize={12}
           />
-          <Tooltip />
+          <Tooltip
+            cursor={{ strokeDasharray: "3 3" }}
+            content={({ active, payload }) => (
+              <CustomTooltip
+                active={active}
+                payload={payload as TooltipPayload[]}
+                type={GraphType.GRAPH2}
+              />
+            )}
+          />
           <Legend iconSize={12} verticalAlign="top" align="right" />
           <Line type="monotone" dataKey="actual" stroke={COLORS.actual_color} />
           <Line type="monotone" dataKey="ideal" stroke={COLORS.ideal_color} />
