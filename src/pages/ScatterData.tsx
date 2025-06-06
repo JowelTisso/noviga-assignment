@@ -32,7 +32,7 @@ import type { AppDispatch, RootState } from "../store/store";
 import { saveSearchValueSnapShot } from "../reducers/mainSlice";
 import Snackbar from "@mui/material/Snackbar";
 import { IconButton } from "@mui/material";
-import { X } from "lucide-react";
+import { MonitorDown, X } from "lucide-react";
 import { COLORS } from "../utils/Colors";
 
 const machines = [
@@ -433,14 +433,21 @@ const ScatterData = () => {
         </Stack>
       </Box>
 
-      <ScatterPlotGraph
-        xTicks={xTicks}
-        scatterPlotData={scatterPlotData}
-        thresholds={thresholds}
-        signal={signal}
-      />
+      {scatterPlotData ? (
+        <ScatterPlotGraph
+          xTicks={xTicks}
+          scatterPlotData={scatterPlotData}
+          thresholds={thresholds}
+          signal={signal}
+        />
+      ) : (
+        <div className="initial-msg">
+          <MonitorDown strokeWidth={0.7} size={50} color={COLORS.font_black} />
+          <p className="initial-txt">Search to load data</p>
+        </div>
+      )}
 
-      {timeSeriesData && <TimeseriesGraph signal={signal} />}
+      {scatterPlotData && timeSeriesData && <TimeseriesGraph signal={signal} />}
 
       <Snackbar
         open={openSnackbar}

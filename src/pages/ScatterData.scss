@@ -3,7 +3,8 @@
 
 .scatter-wrapper {
     width: 90%;
-    margin: 0 auto;
+    margin: auto;
+    margin-top: 50px;
     padding: 0 15px;
     padding-bottom: 50px;
 }
@@ -81,4 +82,11 @@
     }
 
 
+}
+
+.initial-msg {
+    @include flexCenter();
+    flex-direction: column;
+    height: 400px;
+    gap: 20px;
 }
