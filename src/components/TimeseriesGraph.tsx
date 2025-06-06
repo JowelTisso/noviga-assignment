@@ -4,7 +4,6 @@ import { useMemo, memo } from "react";
 import Highcharts from "highcharts/highstock";
 import HighchartsReact from "highcharts-react-official";
 import type { RootState } from "../store/store";
-// import type { FormattedTimeSeriesDataType } from "../reducers/mainSlice";
 import { COLORS } from "../utils/Colors";
 
 const TimeseriesGraph = memo(({ signal }: { signal: string }) => {
