@@ -1,3 +1,4 @@
+import "./TreeData.scss";
 import {
   ReactFlow,
   useEdgesState,
@@ -19,6 +20,7 @@ import type { RootState } from "../store/store";
 import { toggleEditNodeModal } from "../reducers/treeSlice";
 import Box from "@mui/material/Box";
 import CircularProgress from "@mui/material/CircularProgress";
+import { Square } from "lucide-react";
 
 const nodeTypes = {
   node: CustomNode,
@@ -210,12 +212,23 @@ const TreeData: React.FC = () => {
   }, [treeVisualData, setNodes, setEdges]);
 
   return (
-    <div style={{ width: "100%", height: "100vh" }}>
+    <div className="flow-wrapper">
       {pending && (
         <Box className="loader">
           <CircularProgress />
         </Box>
       )}
+
+      <div className="flow-lengend">
+        <div className="flow-legend-item">
+          <Square fill={COLORS.node_red} color={COLORS.node_red} size={10} />
+          <p>Part not allowed on this machine</p>
+        </div>
+        <div className="flow-legend-item">
+          <Square fill={COLORS.node_blue} color={COLORS.node_blue} size={10} />
+          <p>Processed but not counted</p>
+        </div>
+      </div>
       <ReactFlow
         nodes={nodes}
         edges={edges}

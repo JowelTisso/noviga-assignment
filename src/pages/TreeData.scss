@@ -1,10 +1,27 @@
 @use "../styles/variables" as *;
-@use "../styles/utils" as *;
-
-.tree-wrapper {
-    height: 100%;
-}
 
 .flow-wrapper {
-    height: 80%;
+    width: 100%;
+    height: 100vh;
+}
+
+.flow-lengend {
+    flex-direction: column;
+    position: absolute;
+    z-index: 99;
+    margin-top: 50px;
+    padding: 20px;
+
+    .flow-legend-item {
+        display: flex;
+        align-items: center;
+        justify-content: start;
+        gap: 10px;
+        background-color: $background-color;
+
+
+        p {
+            font-size: 0.7rem;
+        }
+    }
 }

@@ -3,6 +3,8 @@
 This is the solution for the **Noviga React Frontend Developer Assignment**.  
 The project implements an interactive React application focused on **industrial machine monitoring** and **process visualization** using charts and graphs.
 
+### [Live](https://noviga.netlify.app/)
+
 ## 📹 Demo
 
 A video recording has been provided that includes:
