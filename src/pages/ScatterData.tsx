@@ -58,7 +58,9 @@ const ToolSequenceMap = {
 };
 
 const ScatterData = () => {
-  const [machineId, setMachineId] = useState("");
+  const [machineId, setMachineId] = useState(
+    "1e776bfb2d2947648a8c01d60670af94"
+  );
   const [startDate, setStartDate] = useState<Date | null>(
     new Date("2025-03-01T00:00:00")
   );
@@ -71,7 +73,8 @@ const ScatterData = () => {
   const [endTime, setEndTime] = useState<Date | null>(
     new Date("2025-05-27T18:00:00")
   );
-  const [toolSequence, setToolSequence] = useState("");
+  const [toolSequence, setToolSequence] = useState("101");
+
   const [changeLogs, setChangeLogs] = useState<ChangeLogEntry[]>([]);
   const [xTicks, setXTicks] = useState([]);
   const [scatterPlotData, setScatterPlotData] = useState<ScatterPlotDataType>();

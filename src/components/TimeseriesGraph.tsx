@@ -1,60 +1,98 @@
 import Box from "@mui/material/Box";
 import { useSelector } from "react-redux";
-import {
-  CartesianGrid,
-  Legend,
-  Line,
-  LineChart,
-  ResponsiveContainer,
-  Tooltip,
-  XAxis,
-  YAxis,
-} from "recharts";
-import type { RootState } from "../store/store";
-import type { FormattedTimeSeriesDataType } from "../reducers/mainSlice";
 import { useMemo, memo } from "react";
+import Highcharts from "highcharts/highstock";
+import HighchartsReact from "highcharts-react-official";
+import type { RootState } from "../store/store";
+// import type { FormattedTimeSeriesDataType } from "../reducers/mainSlice";
 import { COLORS } from "../utils/Colors";
-import CustomTooltip from "./CustomTooltip";
-import { GraphType, type TooltipPayload } from "../types/ScatterData";
 
 const TimeseriesGraph = memo(({ signal }: { signal: string }) => {
   const timeSeriesData = useSelector(
     (state: RootState) => state.main.timeSeriesData
   );
 
-  const formatTimeSeriesData = (
-    timeSeriesData: FormattedTimeSeriesDataType
-  ) => {
-    if (timeSeriesData) {
-      const lineChartData = timeSeriesData.time.map((time, i) => ({
-        time,
-        actual: timeSeriesData.actual[i],
-        ideal: timeSeriesData.ideal[i],
-      }));
-      return lineChartData;
-    }
-    return [];
-  };
+  const formattedTimeSeriesData = useMemo(() => {
+    if (!timeSeriesData) return [];
+    return timeSeriesData.time.map((time, i) => ({
+      x: time * 1000,
+      actual: timeSeriesData.actual[i],
+      ideal: timeSeriesData.ideal[i],
+    }));
+  }, [timeSeriesData]);
 
-  const formattedTimeSeriesData = useMemo(
-    () => formatTimeSeriesData(timeSeriesData),
-    [timeSeriesData]
+  const actualSeries = formattedTimeSeriesData.map((timeData) => [
+    timeData.x,
+    timeData.actual,
+  ]);
+  const idealSeries = formattedTimeSeriesData.map((timeData) => [
+    timeData.x,
+    timeData.ideal,
+  ]);
+
+  const chartOptions = useMemo(
+    () => ({
+      chart: {
+        type: "spline",
+        zoomType: "x",
+        animation: true,
+        panning: true,
+        panKey: "shift",
+      },
+      title: { text: "" },
+      xAxis: {
+        type: "time",
+        title: { text: "Seconds" },
+        labels: {
+          formatter: function () {
+            return new Date(this.value).getSeconds();
+          },
+        },
+      },
+      yAxis: {
+        title: { text: "Values" },
+      },
+      tooltip: {
+        shared: true,
+        crosshairs: true,
+      },
+      legend: {
+        enabled: true,
+        align: "right",
+        verticalAlign: "top",
+        layout: "horizontal",
+      },
+      plotOptions: {
+        series: {
+          turboThreshold: 0,
+          animation: true,
+          marker: {
+            enabled: false,
+          },
+        },
+      },
+      series: [
+        {
+          name: "Actual",
+          data: actualSeries,
+          color: COLORS.actual_color,
+        },
+        {
+          name: "Ideal",
+          data: idealSeries,
+          color: COLORS.ideal_color,
+          dashStyle: "ShortDash",
+        },
+      ],
+    }),
+    [actualSeries, idealSeries]
   );
 
   const formatSignalName = (name: string) => {
-    const nameParts = name.split("_");
-    const namesArray = nameParts.map((namePart) => {
-      const partCharacters = namePart.split("");
-      const partFirstCharUpperCase = partCharacters.map((char, i) =>
-        i === 0 ? char.toUpperCase() : char
-      );
-      const wordParts = partFirstCharUpperCase.join("");
-      return wordParts;
-    });
-
-    const graphName = namesArray.join(" ");
-
-    return graphName;
+    return name
+      .split("_")
+      .map((part) => part.charAt(0).toUpperCase() + part.slice(1))
+      .join(" ");
   };
 
   return (
@@ -62,48 +100,11 @@ const TimeseriesGraph = memo(({ signal }: { signal: string }) => {
       <Box className="scatter-graph-header">
         <p>{formatSignalName(signal)}</p>
       </Box>
-      <ResponsiveContainer width="100%" height={200}>
-        <LineChart
-          data={formattedTimeSeriesData}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 20,
-          }}
-        >
-          <CartesianGrid vertical={false} />
-          <XAxis
-            dataKey="time"
-            label={{ value: "Seconds", position: "bottom", fontSize: 14 }}
-            fontSize={12}
-            interval={3}
-            tickFormatter={(tick) => parseInt(tick).toString()}
-          />
-          <YAxis
-            label={{
-              value: "Values",
-              position: "left",
-              angle: -90,
-              fontSize: 14,
-            }}
-            fontSize={12}
-          />
-          <Tooltip
-            cursor={{ strokeDasharray: "3 3" }}
-            content={({ active, payload }) => (
-              <CustomTooltip
-                active={active}
-                payload={payload as TooltipPayload[]}
-                type={GraphType.GRAPH2}
-              />
-            )}
-          />
-          <Legend iconSize={12} verticalAlign="top" align="right" />
-          <Line type="monotone" dataKey="actual" stroke={COLORS.actual_color} />
-          <Line type="monotone" dataKey="ideal" stroke={COLORS.ideal_color} />
-        </LineChart>
-      </ResponsiveContainer>
+      <HighchartsReact
+        highcharts={Highcharts}
+        options={chartOptions}
+        immutable
+      />
     </Box>
   );
 });

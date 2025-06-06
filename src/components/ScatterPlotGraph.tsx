@@ -1,49 +1,38 @@
-import "./ScatterPlotGraph.scss";
-import { memo } from "react";
-import {
-  ScatterChart,
-  Scatter,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  ResponsiveContainer,
-  ReferenceLine,
-} from "recharts";
-import { COLORS } from "../utils/Colors";
-import { format } from "date-fns";
+import Box from "@mui/material/Box";
+import HighchartsReact from "highcharts-react-official";
+import Highcharts from "highcharts/highstock";
+import "highcharts/modules/boost";
+import { ChartNoAxesCombined, Square } from "lucide-react";
+import { memo, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setLoading, setTimeSeriesData } from "../reducers/mainSlice";
+import { getTimeseriesData } from "../services/scatterData";
+import type { RootState } from "../store/store";
 import {
   Anomaly,
-  GraphType,
+  type AxisValueType,
   type ChangeLogEntry,
   type ScatterPlotType,
   type TimeSeriesDataType,
-  type TooltipPayload,
 } from "../types/ScatterData";
-import {
-  Circle,
-  Diamond,
-  Square,
-  Triangle,
-  ChartNoAxesCombined,
-} from "lucide-react";
-import Box from "@mui/material/Box";
-import CustomTooltip from "./CustomTooltip";
-import { getTimeseriesData } from "../services/scatterData";
-import { useDispatch, useSelector } from "react-redux";
-import { setLoading, setTimeSeriesData } from "../reducers/mainSlice";
-import type { RootState } from "../store/store";
+import { COLORS } from "../utils/Colors";
+
+const tempCycleLogId = {
+  red: 89280,
+  green: 88362,
+  black: 89152,
+};
 
 const legends = [
   {
     id: 1,
     text: "Cycle Anomaly : False",
-    icon: <Circle fill="#28a745" color="#28a745" size={10} />,
+    icon: <Square fill="#28a745" color="#28a745" size={10} />,
   },
   {
     id: 2,
     text: "Cycle Anomaly : True",
-    icon: <Diamond fill="#dc3545" color="#dc3545" size={10} />,
+    icon: <Square fill="#dc3545" color="#dc3545" size={10} />,
   },
   {
     id: 3,
@@ -53,7 +42,7 @@ const legends = [
   {
     id: 4,
     text: "Sequence Anomaly : Null",
-    icon: <Triangle fill="#1a1a1a" color="#1a1a1a" size={10} />,
+    icon: <Square fill="#1a1a1a" color="#1a1a1a" size={10} />,
   },
   {
     id: 5,
@@ -62,14 +51,8 @@ const legends = [
   },
 ];
 
-const tempCycleLogId = {
-  red: 89280,
-  green: 88362,
-  black: 89152,
-};
-
 const ScatterPlotGraph = memo(
-  ({ xTicks, scatterPlotData, thresholds, signal }: ScatterPlotType) => {
+  ({ scatterPlotData, thresholds, signal }: ScatterPlotType) => {
     const dispatch = useDispatch();
 
     const toolSequenceSnapshot = useSelector(
@@ -82,13 +65,76 @@ const ScatterPlotGraph = memo(
       (state: RootState) => state.main.changeLogsSnapshot
     );
 
-    const dataPointClickHandler = async (cycleData: {
-      cycle_log_id: string;
-      anomaly: Anomaly;
-      start_time: Date;
-    }) => {
+    const fetchIdealSignals = (
+      changeLogs: ChangeLogEntry[],
+      start_time: Date,
+      sequence: string
+    ) => {
+      const logWithIdealSignal = changeLogs.find(
+        (log) =>
+          new Date(log.start_time) <= new Date(start_time) &&
+          new Date(start_time) <= new Date(log.end_time)
+      );
+
+      return (
+        logWithIdealSignal?.learned_parameters[sequence]?.average_list || []
+      );
+    };
+
+    const formatTimeSeriesData = (
+      timeseriesResponse: TimeSeriesDataType,
+      anomaly: Anomaly,
+      signal: string
+    ) => {
+      const timeRange: number[] = [];
+      const actualSignals: number[] = [];
+
+      // Here I am simulating timeseries graph for all data points as given timeseries json has only one cycle_log data for each anomaly
+      // cycle_log_id should be dynamic and should come from cycleData.
+      let cycle_log_id = 0;
+
+      switch (anomaly) {
+        case Anomaly.Green:
+          cycle_log_id = tempCycleLogId.green;
+          break;
+        case Anomaly.Red:
+          cycle_log_id = tempCycleLogId.red;
+          break;
+        case Anomaly.Black:
+          cycle_log_id = tempCycleLogId.black;
+          break;
+        default:
+          cycle_log_id = tempCycleLogId.green;
+      }
+
+      if (timeseriesResponse?.data?.[cycle_log_id]?.cycle_data?.[signal]) {
+        Object.entries(
+          timeseriesResponse.data[cycle_log_id].cycle_data[signal]
+        ).forEach(([time, value]) => {
+          timeRange.push(parseFloat(time));
+          actualSignals.push(value);
+        });
+      }
+
+      return { timeRange, actualSignals };
+    };
+
+    const dataPointClickHandler = async (event) => {
+      const point = event.point;
+
+      let pointData: AxisValueType | undefined = null;
+
+      Object.values(scatterPlotData).forEach((dataArr: AxisValueType[]) => {
+        dataArr.find((pointObj) => {
+          if (pointObj.x === point.key) {
+            pointData = pointObj;
+          }
+        });
+      });
+
+      const { cycle_log_id, anomaly, start_time } = pointData;
+
       dispatch(setLoading(true));
-      const { cycle_log_id, anomaly, start_time } = cycleData;
 
       const idealSignals = fetchIdealSignals(
         changeLogsSnapshot,
@@ -98,7 +144,7 @@ const ScatterPlotGraph = memo(
 
       const timeseriesResponse = await getTimeseriesData(
         machineIdSnapshot,
-        cycle_log_id,
+        cycle_log_id.toString(),
         signal,
         anomaly
       );
@@ -119,71 +165,112 @@ const ScatterPlotGraph = memo(
       dispatch(setLoading(false));
     };
 
-    const fetchIdealSignals = (
-      changeLogs: ChangeLogEntry[],
-      start_time: Date,
-      sequence: string
-    ) => {
-      const logWithIdealSignal = changeLogs.find(
-        (log) =>
-          new Date(log.start_time) <= new Date(start_time) &&
-          new Date(start_time) <= new Date(log.end_time)
-      );
+    const thresholdSeries = useMemo(
+      () =>
+        thresholds?.map(({ x1, x2, y }) => ({
+          type: "line",
+          name: "Threshold",
+          data: [
+            [x1, y],
+            [x2, y],
+          ],
+          color: COLORS.threshold,
+          enableMouseTracking: false,
+          linkedTo: null,
+          showInLegend: false,
+          marker: { enabled: false },
+        })),
+      [thresholds]
+    );
 
-      const idealSignals = logWithIdealSignal
-        ? logWithIdealSignal.learned_parameters[sequence]?.average_list
-        : [];
-      return idealSignals;
-    };
+    const series = useMemo(() => {
+      const allData = [];
 
-    const formatTimeSeriesData = (
-      timeseriesResponse: TimeSeriesDataType,
-      anomaly: Anomaly,
-      signal: string
-    ) => {
-      try {
-        const timeRange: number[] = [];
-        const actualSignals: number[] = [];
+      scatterPlotData?.anomalyFalseData?.forEach((d) => {
+        allData.push({
+          x: d.x,
+          y: d.y,
+          color: COLORS.anomaly_false,
+        });
+      });
 
-        // Here I am simulating timeseries graph for all data points as given timeseries json has only one cycle_log data for each anomaly
-        // cycle_log_id should be dynamic and should come from cycleData.
-        let cycle_log_id = 0;
+      scatterPlotData?.anomalyTrueData?.forEach((d) => {
+        allData.push({
+          x: d.x,
+          y: d.y,
+          color: COLORS.anomaly_true,
+          marker: { symbol: "diamond" },
+        });
+      });
 
-        switch (anomaly) {
-          case Anomaly.Green:
-            cycle_log_id = tempCycleLogId.green;
-            break;
-          case Anomaly.Red:
-            cycle_log_id = tempCycleLogId.red;
-            break;
-          case Anomaly.Black:
-            cycle_log_id = tempCycleLogId.black;
-            break;
-          default:
-            cycle_log_id = tempCycleLogId.green;
-            break;
-        }
+      scatterPlotData?.anomalyNullData?.forEach((d) => {
+        allData.push({
+          x: d.x,
+          y: d.y,
+          color: COLORS.sequence_null,
+          marker: { symbol: "triangle" },
+        });
+      });
 
-        if (timeseriesResponse) {
-          Object.entries(
-            timeseriesResponse.data[cycle_log_id]?.cycle_data[signal]
-          ).forEach(([time, value]) => {
-            timeRange.push(parseFloat(time));
-            actualSignals.push(value);
-          });
-        }
+      return [
+        ...thresholdSeries,
+        {
+          type: "scatter",
+          name: "Scatter Data",
+          showInLegend: false,
+          data: allData,
+          turboThreshold: 0,
+          boostThreshold: 10,
+          allowPointSelect: true,
+          point: {
+            events: {
+              click: dataPointClickHandler,
+            },
+          },
+          enableMouseTracking: true,
+        },
+      ];
+    }, [scatterPlotData]);
 
-        return { timeRange, actualSignals };
-      } catch (err) {
-        console.error(err);
-      }
-    };
+    const options = useMemo(
+      () => ({
+        chart: {
+          zooming: {
+            type: "xy",
+            sensitivity: 1.03,
+          },
+          animation: false,
+        },
+        boost: {
+          useGPUTranslations: true,
+        },
+        title: { text: "" },
+        xAxis: {
+          type: "datetime",
+          title: { text: "Time" },
+        },
+        yAxis: {
+          title: { text: "Values" },
+          events: {
+            afterSetExtremes: function (e) {
+              const chart = this.chart;
+              chart.yAxis[0].setExtremes(e.dataMin - 200, e.dataMax);
+            },
+          },
+        },
+        tooltip: {
+          pointFormat:
+            "<b>x : {point.x:%e %b %Y %H:%M:%S}</b><br/>y : {point.y}",
+        },
+        series,
+      }),
+      [series]
+    );
 
     return (
       <Box className="box scatter-graph" sx={{ mt: 1 }}>
         <Box className="scatter-graph-header">
           <p>Scatter Plot</p>
-
           <div className="legend-wrapper">
             {legends.map((legend) => (
               <span key={legend.id} className="legend-details">
@@ -193,85 +280,7 @@ const ScatterPlotGraph = memo(
             ))}
           </div>
         </Box>
-        <ResponsiveContainer width="100%" height={200}>
-          <ScatterChart
-            margin={{
-              top: 20,
-              right: 20,
-              bottom: 20,
-              left: 20,
-            }}
-          >
-            <CartesianGrid vertical={false} />
-            <XAxis
-              dataKey="x"
-              type="number"
-              name="Time"
-              scale="time"
-              ticks={xTicks}
-              fontSize={12}
-              domain={["dataMin", "dataMax"]}
-              label={{ value: "Time", position: "bottom", fontSize: 14 }}
-              tickFormatter={(tick) => format(new Date(tick), "d MMM")}
-            />
-            <YAxis
-              dataKey="y"
-              type="number"
-              name="Values"
-              fontSize={12}
-              tickFormatter={(tick) => tick.toFixed(0)}
-              label={{
-                value: "Values",
-                position: "left",
-                angle: -90,
-                fontSize: 14,
-              }}
-            />
-            <Tooltip
-              cursor={{ strokeDasharray: "3 3" }}
-              content={({ active, payload }) => (
-                <CustomTooltip
-                  active={active}
-                  payload={payload as TooltipPayload[]}
-                  type={GraphType.GRAPH1}
-                />
-              )}
-            />
-            <Scatter
-              name="Anomaly false"
-              data={scatterPlotData?.anomalyFalseData}
-              fill={COLORS.anomaly_false}
-              isAnimationActive={false}
-              onClick={dataPointClickHandler}
-            />
-            <Scatter
-              name="Anomaly true"
-              data={scatterPlotData?.anomalyTrueData}
-              fill={COLORS.anomaly_true}
-              isAnimationActive={false}
-              shape="diamond"
-              onClick={dataPointClickHandler}
-            />
-            <Scatter
-              name="Sequence null"
-              data={scatterPlotData?.anomalyNullData}
-              fill={COLORS.sequence_null}
-              isAnimationActive={false}
-              shape="triangle"
-              onClick={dataPointClickHandler}
-            />
-            {thresholds?.map(({ x1, x2, y }) => (
-              <ReferenceLine
-                key={x1}
-                stroke={COLORS.threshold}
-                segment={[
-                  { x: x1, y },
-                  { x: x2, y },
-                ]}
-              />
-            ))}
-          </ScatterChart>
-        </ResponsiveContainer>
+        <HighchartsReact highcharts={Highcharts} options={options} immutable />
       </Box>
     );
   }
