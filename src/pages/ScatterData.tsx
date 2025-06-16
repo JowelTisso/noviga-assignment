@@ -150,7 +150,7 @@ const ScatterData = () => {
         if (predictions) {
           setPredictionData(predictions);
         }
-        const xTicks = generateXAxisTicks(startDate, endDate);
+        const xTicks = generateXAxisTicks(startDate, endDate); // Not used for highcharts, used for old recharts
         setXTicks(xTicks);
 
         const formattedPredictionData = formatPredictionData(
@@ -182,7 +182,7 @@ const ScatterData = () => {
     changeLogs.forEach((log) => {
       const formattedThreshold: ThresholdDataType = {
         x1: new Date(log.start_time).getTime(),
-        x2: new Date(log.end_time).getTime(),
+        x2: new Date(log.end_time).getTime(), // I have manually added the end_time property in the prediction json data, as threshold requires a start time and a end time
         y: log.learned_parameters[sequence].threshold,
       };
       selectedThreshold.push(formattedThreshold);
@@ -241,6 +241,7 @@ const ScatterData = () => {
     return { anomalyTrueData, anomalyFalseData, anomalyNullData };
   };
 
+  // Not used for highcharts, used for old recharts
   const generateXAxisTicks = (start: Date, end: Date): number[] => {
     const ticks: number[] = [];
     let current = start;

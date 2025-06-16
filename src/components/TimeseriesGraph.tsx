@@ -11,10 +11,14 @@ const TimeseriesGraph = memo(({ signal }: { signal: string }) => {
     (state: RootState) => state.main.timeSeriesData
   );
 
+  // Time interval calculation for ideal signal alignment
+  // The start time cannot be used for starting point of a ideal signal, as it doesnot align with the starting of the actual signal,
+  // eg : actual start = 5.440 sec, ideal start = 33 sec
+  // time difference between actual times is 0.272 sec
   const formattedTimeSeriesData = useMemo(() => {
     if (!timeSeriesData) return [];
     return timeSeriesData.time.map((time, i) => ({
-      x: time * 1000,
+      x: time * 1000, // time value should be always in miliseconds
       actual: timeSeriesData.actual[i],
       ideal: timeSeriesData.ideal[i],
     }));
@@ -26,7 +30,7 @@ const TimeseriesGraph = memo(({ signal }: { signal: string }) => {
   ]);
   const idealSeries = formattedTimeSeriesData.map((timeData) => [
     timeData.x,
-    timeData.ideal,
+    parseFloat(timeData.ideal.toFixed(3)),
   ]);
 
   const chartOptions = useMemo(

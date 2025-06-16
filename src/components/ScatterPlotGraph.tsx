@@ -12,6 +12,7 @@ import {
   Anomaly,
   type AxisValueType,
   type ChangeLogEntry,
+  type ScatterPlotDataType,
   type ScatterPlotType,
   type TimeSeriesDataType,
 } from "../types/ScatterData";
@@ -183,35 +184,70 @@ const ScatterPlotGraph = memo(
       [thresholds]
     );
 
-    const series = useMemo(() => {
+    const formatSeriesData = (scatterPlotData: ScatterPlotDataType) => {
       const allData = [];
 
+      // Calculating minY and maxY for Y axis range for optimization in boot mode
+      let minY = 0;
+      let maxY = 0;
+      // This could have been done in ScatterData page in formatPredictionData function to adapt to highchart implementation
+      // Or the raw data from ScatterData can be passed to this component and the formatting could have been done here
       scatterPlotData?.anomalyFalseData?.forEach((d) => {
+        const y = parseFloat(d.y.toFixed(3));
+        if (minY > y) {
+          minY = y;
+        }
+        if (maxY < y) {
+          maxY = y;
+        }
         allData.push({
           x: d.x,
-          y: d.y,
+          y,
           color: COLORS.anomaly_false,
         });
       });
 
       scatterPlotData?.anomalyTrueData?.forEach((d) => {
+        const y = parseFloat(d.y.toFixed(3));
+        if (minY > y) {
+          minY = y;
+        }
+        if (maxY < y) {
+          maxY = y;
+        }
         allData.push({
           x: d.x,
-          y: d.y,
+          y,
           color: COLORS.anomaly_true,
           marker: { symbol: "diamond" },
         });
       });
 
       scatterPlotData?.anomalyNullData?.forEach((d) => {
+        const y = parseFloat(d.y.toFixed(3));
+        if (minY > y) {
+          minY = y;
+        }
+        if (maxY < y) {
+          maxY = y;
+        }
         allData.push({
           x: d.x,
-          y: d.y,
+          y,
           color: COLORS.sequence_null,
           marker: { symbol: "triangle" },
         });
       });
 
+      return { allData, minY, maxY };
+    };
+
+    const { allData, minY, maxY } = useMemo(
+      () => formatSeriesData(scatterPlotData),
+      [scatterPlotData]
+    );
+
+    const series = useMemo(() => {
       return [
         ...thresholdSeries,
         {
@@ -219,8 +255,8 @@ const ScatterPlotGraph = memo(
           name: "Scatter Data",
           showInLegend: false,
           data: allData,
-          turboThreshold: 0,
-          boostThreshold: 10,
+          turboThreshold: 0, // It is used for number or array of numbers, It is not recommended for complex objects
+          boostThreshold: 10, // Setting threshold to 10 to prevent the change of color of data points to default color when zooming in
           allowPointSelect: true,
           point: {
             events: {
@@ -237,12 +273,19 @@ const ScatterPlotGraph = memo(
         chart: {
           zooming: {
             type: "xy",
-            sensitivity: 1.03,
+            mouseWheel: {
+              sensitivity: 1.2,
+            },
           },
-          animation: false,
+          animation: true,
+          panning: {
+            enabled: true,
+            type: "xy",
+          },
+          panKey: "shift",
         },
         boost: {
-          useGPUTranslations: true,
+          useGPUTranslations: false,
         },
         title: { text: "" },
         xAxis: {
@@ -251,10 +294,15 @@ const ScatterPlotGraph = memo(
         },
         yAxis: {
           title: { text: "Values" },
+          min: minY, // Set the min explicitly to prevent computing by the graph which leds to bug
+          max: maxY, // Same for max, get the min and max from the scatter data
           events: {
-            afterSetExtremes: function (e) {
-              const chart = this.chart;
-              chart.yAxis[0].setExtremes(e.dataMin - 200, e.dataMax);
+            afterSetExtremes: function () {
+              // const chart = this.chart;
+              // chart.yAxis[0].setExtremes(e.dataMin - 200, 1000);
+              // Setting extremes higher point to a fixed 1000 point or e.dataMax, is to keep the Y axis range constant
+              // otherwise the Y axis range does not comes back to the original range when zooming out and gets stuck at around 400 or mid value
+              // NEW SOLUTION: Instead of settig the min and max in scroll, set explicity in the Y and X axis
             },
           },
         },
