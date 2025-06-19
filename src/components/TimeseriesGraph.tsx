@@ -30,7 +30,7 @@ const TimeseriesGraph = memo(({ signal }: { signal: string }) => {
   ]);
   const idealSeries = formattedTimeSeriesData.map((timeData) => [
     timeData.x,
-    parseFloat(timeData.ideal.toFixed(3)),
+    parseFloat(timeData.ideal?.toFixed(3)) || 0,
   ]);
 
   const chartOptions = useMemo(
